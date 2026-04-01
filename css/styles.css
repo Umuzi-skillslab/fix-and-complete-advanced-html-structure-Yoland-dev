@@ -1,0 +1,129 @@
+/* Basic styles with multiple errors and missing features */
+/* index.html */
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.top {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+}
+
+.top h1 {
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    position: relative;
+}
+
+
+.nav a:hover {
+    color: #e0550f;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #e0550f;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+
+}
+
+.nav>a {
+    padding: 5px 10px;
+}
+
+/* Missing: advanced selector types (attribute, child, etc) */
+
+.hero {
+    padding: 60px 20px;
+    background-color: lightgray;
+    /* Poor colour contrast */
+    color: #e0550f;
+}
+
+/* Missing: flexbox layouts (requirement: 2+ flexbox layouts) */
+/* Missing: CSS Grid layout (requirement: 1+ grid layout) */
+
+.content {
+    padding: 40px 20px;
+}
+
+/* Missing: text effects (shadows, gradients) */
+/* Missing: transforms */
+/* Missing: transitions */
+/* Missing: keyframe animations */
+
+img {
+    max-width: 100%;
+}
+
+/*contact.html */
+
+/* Video and audio styling missing */
+
+/* Form styling incomplete */
+form input {
+    display: block;
+    margin: 10px 0;
+    padding: 5px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+
+.bottom {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Missing: responsive design with media queries */
+/* Missing: advanced layout techniques */
+/* Code quality issues: poor naming, no comments, inconsistent spacing */
+/* Only using 3 selector types (element, class) - needs 5+ */
+/* No pseudo-classes used - needs 5+ */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.portfolio-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
