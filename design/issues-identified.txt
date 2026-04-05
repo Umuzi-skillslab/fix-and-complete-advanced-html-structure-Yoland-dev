@@ -1,0 +1,29 @@
+HTML & CSS in depth Project Issues Identification
+
+1.     <link rel="stylesheet" href="css/styles.css">
+The href attribute value uses a css folder which does not exist on the file structure. The css will not be applied because this path does not exist.
+
+2. Missing meta element on all .html  files inside the head element -     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+3. Incorrect input types for email and telephone fields
+4. Missing labels for input information required
+5. Missing images folder and images
+6. Missing media folder and video
+7.  Missing video controls and fallback
+8. Missing audio elements
+9. Missing iframes
+10. Missing figure/figcaption
+11.  Missing validation attributes
+12. Missing: radio buttons, checkboxes, select/dropdown, date/number inputs 
+  13. Missing: fieldset for grouping 
+14. Missing third service
+15. Missing Flexbox layout 
+16. Missing: pseudo-classes for hover effects */
+17. Missing: combination selectors
+18. Missing: responsive design with media queries
+19. Missing: responsive design with media queries
+
+
+
+
+

@@ -1,50 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>Media Gallery</title>
     <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div class="top">
         <h1>Media Gallery</h1>
         <div class="nav">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
-            <a href="media.html">Media</a>
+            <a href="media.html" class="active">Media</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
-    
+
     <div>
         <h2>Video Showcase</h2>
-        
-        <!-- First video - missing controls and fallback -->
-        <video src="media/sample1.mp4" width="640" height="360"></video>
-        
-        <!-- Second video missing entirely -->
+
+        <video src="media/sample1.mp4" width="640" height="360" controls>Your browser does not support
+            video format.</video>
+
+        <video src="media/sample2.mp4" width="640" height="360" controls muted>Your browser does not
+            support HTML video.</video>
     </div>
-    
+
     <div>
         <h2>Audio Sample</h2>
-        <!-- Audio element missing completely -->
         <p>Listen to our audio production quality.</p>
+        <audio src="media/sample.mp3" controls>Your browser does not support audio format.</audio>
     </div>
-    
+
     <div>
         <h2>Location</h2>
-        <!-- iframe missing completely -->
+        <iframe src="https://www.google.com/maps?q=123+Media+Street&output=embed" width="600" height="450"
+            style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
         <p>Visit our studio at 123 Media Street</p>
     </div>
-    
+
     <div>
         <h2>Client Testimonials</h2>
-        <img src="images/client1.jpg">
-        <img src="images/client2.jpg">
-        <!-- Missing figure/figcaption semantic markup -->
+        <figure>
+            <img src="images/client1.jpg" height="150">
+            <figcaption>"The team always delivers high quality."</figcaption>
+        </figure>
+        <figure>
+            <img src="images/client2.jpg" height="150">
+            <figcaption>"Company has experienced workers who help us achieve our goals."</figcaption>
+        </figure>
     </div>
-    
+
     <div class="bottom">
         <p>Email: contact@mediaproduction.com</p>
     </div>
 </body>
+
 </html>

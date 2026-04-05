@@ -1,49 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>About Us</title>
     <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div class="top">
         <h1>About Our Services</h1>
         <div class="nav">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active">About</a>
             <a href="media.html">Media</a>
             <a href="contact.html">Contact</a>
         </div>
     </div>
-    
+
     <div>
         <h2>Our Team</h2>
         <p>We are a team of experienced media professionals dedicated to creating high-quality content.</p>
     </div>
-    
+
     <div>
         <h2>Services</h2>
-        <!-- Flexbox layout should be here but using basic divs -->
-        <div>
-            <h3>Video Production</h3>
-            <p>Professional video creation for corporate and creative projects.</p>
+
+        <div class="services-container">
+            <div class="service-card">
+                <h3>Video Production</h3>
+                <p>Professional video creation for corporate and creative projects.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Audio Recording</h3>
+                <p>Studio-quality audio production and editing services.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Photography</h3>
+                <p>High-quality photography for events, branding, and marketing.</p>
+            </div>
         </div>
-        <div>
-            <h3>Audio Recording</h3>
-            <p>Studio-quality audio production and editing services.</p>
-        </div>
-        <!-- Missing third service -->
     </div>
-    
+
     <div>
         <h2>Portfolio</h2>
-        <!-- Grid gallery missing - just basic layout -->
-        <img src="images/work1.jpg">
-        <img src="images/work2.jpg">
-        <img src="images/work3.jpg">
+        <div class="portfolio-grid">
+            <img src="images/work1.jpg" alt="project 1">
+            <img src="images/work2.jpg" alt="project 2">
+            <img src="images/work3.jpg" alt="project 3">
+        </div>
     </div>
-    
+
     <div class="bottom">
         <p>Email: contact@mediaproduction.com</p>
     </div>
 </body>
+
 </html>
