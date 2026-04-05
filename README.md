@@ -1,46 +1,98 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/uFImwIHI)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=23177392&assignment_repo_type=AssignmentRepo)
-# Media Production Website Starter Code
+# Media Production Company — Website
 
-This is the starter codebase for your media production website project. The code is approximately 70% complete but contains errors, omissions, and areas that need significant improvement.
+## Overview
+A four-page static website for a fictional media production company offering video production, audio recording, and photography services. Pages: **Home** (`index.html`), **About** (`about.html`), **Media** (`media.html`), and **Contact** (`contact.html`). All pages share a single stylesheet (`css/styles.css`).
 
-## What's Included
+---
 
-- `index.html` - Home page (incomplete, semantic issues)
-- `about.html` - About/Services page (incomplete, missing flexbox/grid layouts)
-- `media.html` - Media gallery page (incomplete, missing media elements)
-- `contact.html` - Contact page (incomplete form with validation issues)
-- `css/styles.css` - Stylesheet (incomplete, missing advanced features)
-- `images/` folder - Placeholder folder for your images
-- `media/` folder - Placeholder folder for video/audio files
+## Issues Found in Starter Code
 
-## Your Task
+- `font-family: Arial` — generic, no fallback stack
+- Only **2 selector types** used (element + class); requirement was 5+
+- Only **1 pseudo-class** used (`:hover`); requirement was 5+
+- **No flexbox layouts** on hero or footer sections
+- **No CSS Grid** anywhere in the stylesheet
+- **No keyframe animations**, transforms, or transitions
+- **No text effects** (shadows, gradients)
+- **No media queries** — site was not responsive
+- Form fields had `display: block` with minimal padding — all inputs rendered on a single line with no layout
+- `<video>` second element had typo `type="vido/mp4"`
+- Portfolio images used fixed pixel `height` with no `object-fit`, causing distortion
+- `<figure>` and `<figcaption>` were not defined
+- No `:focus` styles — keyboard navigation had no visible indicator
 
-Review the provided code carefully and:
-1. Identify and fix all HTML and CSS errors
-2. Complete all missing advanced requirements
-3. Add required media elements (video, audio, iframe)
-4. Implement flexbox and CSS Grid layouts
-5. Add CSS effects, transforms, transitions, and animations
-6. Expand selector usage and add pseudo-classes
-7. Improve code quality and organisation
-8. Test across multiple browsers and validate all code
+---
 
-## Getting Started
+## Fixes and Implementations
 
-1. Review all HTML and CSS files thoroughly
-2. Run HTML through W3C Validator to identify errors
-3. Run CSS through W3C CSS Validator
-4. Identify missing advanced features (flexbox, grid, animations, etc.)
-5. Test in multiple browsers
-6. Fix all issues and complete missing requirements
+### Flexbox Layouts (4 implemented)
+1. **`.top` header** — `justify-content: space-between` aligns the logo left and nav right, with `flex-wrap` for small screens
+2. **`.nav`** — horizontal link row with consistent `gap`, collapses cleanly on mobile
+3. **`.hero`** — `flex-direction: column` centres content vertically within the full-height section
+4. **`.bottom` footer** — centres contact items horizontally, stacks vertically at 768px
 
-## Notes
+### CSS Grid Layouts (3 implemented)
+1. **`.content`** (homepage) — `1fr 2fr` two-column split separating the heading from the body text
+2. **`.services-container`** (about) — `repeat(3, 1fr)` equal card columns, collapses to 1 column on tablet
+3. **`fieldset`** (contact form) — `1fr 1fr` pairs fields naturally; full-width fields use `grid-column: 1 / -1`
 
-- You will need to add your own video and audio files to the `media/` folder
-- You will need to add images to the `images/` folder
-- The starter code intentionally has issues for you to discover and fix
-- Advanced features like flexbox, grid, animations are missing or incomplete
-- Refer to the project requirements document for all specifications
+### Selector Types Added (6 total)
+| # | Type | Example |
+|---|------|---------|
+| 1 | Element | `body`, `h1`, `figure`, `audio` |
+| 2 | Class | `.hero`, `.service-card`, `.portfolio-grid` |
+| 3 | Descendant | `.nav a`, `.service-card h3`, `figure img` |
+| 4 | Attribute | `input[type="email"]`, `video[controls]`, `iframe[src*="google.com/maps"]` |
+| 5 | Pseudo-class | `:hover`, `:focus`, `:valid`, `:first-child`, `:last-child`, `:nth-child()`, `:active`, `:checked`, `:last-of-type` |
+| 6 | Pseudo-element | `::before`, `::after`, `::placeholder` |
 
-Good luck!
+### Animations, Effects, Transforms & Transitions
+- **`@keyframes fadeUp`** — hero text and about section paragraphs fade and rise on load
+- **`@keyframes slideInLeft`** — site title slides in from the left on every page
+- **`@keyframes underlineExpand`** — nav link underline scales from 0 to full width on hover
+- **Text shadow** — `text-shadow` on `h1` for depth against the dark header
+- **Gradient text** — `background-clip: text` on `.hero h2` fades white into the brand orange
+- **Transforms** — `translateY(-5px)` lifts cards and buttons on hover; `scaleX(1)` expands nav underlines; `scale(1.03)` zooms portfolio images
+- **Transitions** — applied to border-color, box-shadow, transform, color, and background-color throughout, all using a consistent `0.25s ease` variable
+
+### Accessibility Improvements
+- `:focus` styles added to all nav links, inputs, and the submit button using a visible `outline` in the accent colour
+- `accent-color` applied to radio, checkbox, and audio player controls
+- Colour contrast fixed on `.hero` — white text on dark background (passes WCAG AA)
+- `aria-current="page"` attribute selector used to style the active nav link semantically
+- All images include `alt` attributes; `object-fit: cover` prevents distortion
+- `placeholder` colour kept at sufficient contrast (`#bbb` on white)
+
+### Cross-Browser Compatibility
+- `clamp()` used for fluid font sizes — supported in all modern browsers (Chrome 79+, Firefox 75+, Safari 13.1+)
+- `-webkit-background-clip: text` included alongside the standard `background-clip: text` for Safari
+- `appearance: none` on `<select>` with a custom SVG chevron ensures consistent rendering across Chrome, Firefox, and Safari
+- `accent-color` is supported in Chrome 93+, Firefox 92+, Safari 15.4+; older browsers fall back to default control styles gracefully
+- `position: sticky` on `.top` requires no prefix in modern browsers; disabled (falls back to `static`) on mobile via media query to avoid iOS scroll bugs
+
+---
+
+## Viewing Locally
+
+1. Clone or download the project folder
+2. Ensure the folder structure is:
+   ```
+   project/
+   ├── css/styles.css
+   ├── images/
+   ├── media/
+   ├── index.html
+   ├── about.html
+   ├── media.html
+   └── contact.html
+   ```
+3. Open `index.html` in any modern browser — no server required
+
+---
+
+## Known Issues / Limitations
+
+- `label:has(...)` is used for radio/checkbox layout — not supported in Firefox below version 121
+- The Google Maps `<iframe>` requires an active internet connection to render
+- Form has no backend — `<form>` submission reloads the page; a server or service (e.g. Formspree) would be needed for real submissions
+- The `video[controls]` typo (`type="vido/mp4"`) in the original HTML should be corrected manually in `media.html`
